@@ -12,8 +12,8 @@ type Tx interface {
 	Del(ctx context.Context, k []byte) (err error)
 
 	// list
-	LPush(ctx context.Context, k []byte, v interface{}) error
-	RPush(ctx context.Context, k []byte, v interface{}) error
+	LPush(ctx context.Context, k []byte, v0 interface{}, v ...interface{}) error
+	RPush(ctx context.Context, k []byte, v0 interface{}, v ...interface{}) error
 	LPop(ctx context.Context, k []byte) (interface{}, error)
 	RPop(ctx context.Context, k []byte) (interface{}, error)
 }

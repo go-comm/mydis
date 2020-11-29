@@ -4,15 +4,15 @@ import (
 	"context"
 )
 
-func (db *DB) LPush(ctx context.Context, k []byte, v interface{}) error {
+func (db *DB) LPush(ctx context.Context, k []byte, v0 interface{}, v ...interface{}) error {
 	return Update(ctx, db, func(tx Tx) error {
-		return tx.LPush(ctx, k, v)
+		return tx.LPush(ctx, k, v0, v...)
 	})
 }
 
-func (db *DB) RPush(ctx context.Context, k []byte, v interface{}) error {
+func (db *DB) RPush(ctx context.Context, k []byte, v0 interface{}, v ...interface{}) error {
 	return Update(ctx, db, func(tx Tx) error {
-		return tx.RPush(ctx, k, v)
+		return tx.RPush(ctx, k, v0, v...)
 	})
 }
 
