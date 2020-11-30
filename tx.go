@@ -16,6 +16,11 @@ type Tx interface {
 	RPush(ctx context.Context, k []byte, v0 interface{}, v ...interface{}) error
 	LPop(ctx context.Context, k []byte) (interface{}, error)
 	RPop(ctx context.Context, k []byte) (interface{}, error)
+	LLen(ctx context.Context, k []byte) (interface{}, error)
+	LIndex(ctx context.Context, k []byte, i int) (interface{}, error)
+	LSet(ctx context.Context, k []byte, i int, v interface{}) error
+	LRange(ctx context.Context, k []byte, start int, stop int) (interface{}, error)
+	LTrim(ctx context.Context, k []byte, start int, stop int) error
 }
 
 func View(ctx context.Context, db *DB, fn func(tx Tx) error) error {

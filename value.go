@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	TNone = iota
+	TNone uint8 = iota
 	TString
 	TList
 	TSet
